@@ -1,6 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import ContactModal from '../components/ContactModal.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -26,6 +27,7 @@ const { title, description = 'University of Santo Tomas Applied Physics Society'
       <slot />
     </main>
     <Footer />
+    <ContactModal />
   </body>
 </html>
 
