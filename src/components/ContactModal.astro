@@ -103,17 +103,46 @@
     if (e.key === 'Escape') closeModal();
   });
 
-  form.addEventListener('submit', (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name    = (document.getElementById('modal-name') as HTMLInputElement).value.trim();
     const subject = (document.getElementById('modal-subject') as HTMLInputElement).value.trim();
     const message = (document.getElementById('modal-message') as HTMLTextAreaElement).value.trim();
 
-    const body = name ? `From: ${name}\n\n${message}` : message;
-    const url  = `https://mail.google.com/mail/?view=cm&to=rolandojose.liwag.sci@ust.edu.ph&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
 
-    window.open(url, '_blank');
-    closeModal();
-    form.reset();
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '9742b6d1-4978-4e39-8eab-d8af2c9fb3e7',
+          subject: subject,
+          message: message,
+          from_name: name || 'Website Visitor',
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        submitBtn.textContent = 'Message Sent!';
+        setTimeout(() => {
+          closeModal();
+          form.reset();
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+        }, 1500);
+      } else {
+        throw new Error('Failed');
+      }
+    } catch {
+      submitBtn.textContent = 'Failed. Try again.';
+      submitBtn.disabled = false;
+      setTimeout(() => { submitBtn.textContent = 'Send Message'; }, 2500);
+    }
   });
 </script>
