@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Gallery" description="Photos and memories from UST Applied Physics Society events.">
+  <section class="bg-aps-black text-white py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="font-serif text-4xl font-bold mb-3" data-animate="fade-up">Gallery</h1>
+      <p class="text-gray-400" data-animate="fade-up" data-animate-delay="120">Moments from our events and activities</p>
+    </div>
+  </section>
+
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-gray-50 rounded-xl p-12 text-center border border-dashed border-gray-200" data-animate="fade-up">
+        <p class="text-gray-400 mb-2">Photos from events will be displayed here.</p>
+        <p class="text-gray-400 text-sm">Add images to <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">public/gallery/</code></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

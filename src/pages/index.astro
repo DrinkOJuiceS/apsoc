@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home">
+  <!-- Hero -->
+  <section id="hero" class="bg-aps-black text-white py-24 px-4 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#F5B80018_0%,_transparent_70%)] pointer-events-none"></div>
+    <div id="hero-inner" class="relative max-w-4xl mx-auto">
+      <img
+        src="/logo.png"
+        alt="UST APS Logo"
+        class="w-36 h-36 mx-auto mb-8 rounded-full object-cover ring-4 ring-gold/30"
+        data-animate="zoom-in"
+      />
+      <h1
+        class="font-serif text-4xl md:text-6xl font-bold mb-4"
+        data-animate="fade-up"
+        data-animate-delay="120"
+      >
+        Where Physics <span class="text-gold">Meets Purpose</span>
+      </h1>
+      <p
+        class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
+        data-animate="fade-up"
+        data-animate-delay="240"
+      >
+        The UST Applied Physics Society unites students passionate about physics — fostering academic excellence, research, and community since 2002.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center"
+        data-animate="fade-up"
+        data-animate-delay="360"
+      >
+        <a href="/about" class="px-8 py-3 bg-gold text-aps-black font-semibold rounded-lg hover:bg-gold-dark transition-colors duration-200">
+          Learn More
+        </a>
+        <a href="/events" class="px-8 py-3 border border-white/30 text-white rounded-lg hover:border-gold hover:text-gold transition-colors duration-200">
+          Upcoming Events
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Snapshot -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-serif text-3xl font-bold mb-4 text-aps-black" data-animate="fade-up">Who We Are</h2>
+      <p class="text-gray-600 text-lg leading-relaxed mb-6" data-animate="fade-up" data-animate-delay="100">
+        The UST Applied Physics Society (APS) is the official student organization of the Applied Physics program at the University of Santo Tomas. We are dedicated to promoting excellence in physics, nurturing research culture, and building a strong community of future physicists.
+      </p>
+      <a href="/about" class="text-gold font-semibold hover:underline" data-animate="fade-up" data-animate-delay="200">More about us &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-aps-black text-white py-10 px-4">
+    <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div data-animate="fade-up" data-animate-delay="0">
+        <div class="text-gold text-3xl font-bold">2002</div>
+        <div class="text-gray-400 text-sm mt-1">Year Founded</div>
+      </div>
+      <div data-animate="fade-up" data-animate-delay="100">
+        <div class="text-gold text-3xl font-bold">UST</div>
+        <div class="text-gray-400 text-sm mt-1">Manila, Philippines</div>
+      </div>
+      <div data-animate="fade-up" data-animate-delay="200">
+        <div class="text-gold text-3xl font-bold">20+</div>
+        <div class="text-gray-400 text-sm mt-1">Years of Service</div>
+      </div>
+      <div data-animate="fade-up" data-animate-delay="300">
+        <div class="text-gold text-3xl font-bold">AP</div>
+        <div class="text-gray-400 text-sm mt-1">Applied Physics</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="font-serif text-3xl font-bold text-aps-black" data-animate="fade-up">Upcoming Events</h2>
+        <a href="/events" class="text-gold font-semibold hover:underline text-sm" data-animate="fade-up">View all &rarr;</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[0, 1, 2].map((i) => (
+          <div
+            class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+            data-animate="fade-up"
+            data-animate-delay={String(i * 120)}
+          >
+            <div class="w-full h-32 bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-gray-400 text-sm">
+              Event Photo
+            </div>
+            <span class="text-xs text-gold font-semibold uppercase tracking-wide">Coming Soon</span>
+            <h3 class="font-semibold text-aps-black mt-1 mb-2">Event Title</h3>
+            <p class="text-gray-500 text-sm">Stay tuned for our upcoming events and activities.</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Spotlight -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-serif text-3xl font-bold mb-4 text-aps-black" data-animate="fade-up">Research & Groups</h2>
+      <p class="text-gray-600 mb-8 leading-relaxed" data-animate="fade-up" data-animate-delay="100">
+        Our members are connected to cutting-edge research across physics and related disciplines at UST and beyond.
+      </p>
+      <a
+        href="/research"
+        class="px-8 py-3 bg-aps-black text-white font-semibold rounded-lg hover:bg-aps-dark transition-colors duration-200"
+        data-animate="fade-up"
+        data-animate-delay="200"
+      >
+        Explore Research Groups
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Hero parallax on scroll
+  const heroInner = document.getElementById('hero-inner');
+  window.addEventListener('scroll', () => {
+    if (heroInner) {
+      heroInner.style.transform = `translateY(${window.scrollY * 0.18}px)`;
+    }
+  }, { passive: true });
+</script>

@@ -1,0 +1,92 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/officers', label: 'Officers' },
+  { href: '/events', label: 'Events' },
+  { href: '/research', label: 'Research' },
+  { href: '/collaborators', label: 'Collaborators' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/alumni', label: 'Alumni' },
+  { href: '/contact', label: 'Contact' },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-aps-black sticky top-0 z-50 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo + Name -->
+      <a href="/" class="flex items-center gap-3 shrink-0 group">
+        <img
+          src="/logo.png"
+          alt="UST APS Logo"
+          class="h-10 w-10 rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+        />
+        <span class="text-white font-semibold text-sm leading-tight hidden sm:block">
+          UST Applied<br />Physics Society
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`px-3 py-2 rounded text-sm font-medium transition-colors duration-200 ${
+              currentPath === link.href
+                ? 'text-gold bg-white/10'
+                : 'text-gray-300 hover:text-gold hover:bg-white/5'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/contact"
+          class="ml-3 px-4 py-2 bg-gold text-aps-black text-sm font-semibold rounded hover:bg-gold-dark transition-colors duration-200"
+        >
+          Join Us
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2 transition-colors" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden pb-4">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class="block px-3 py-2 text-sm text-gray-300 hover:text-gold hover:bg-white/5 rounded transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact" class="block mt-2 px-3 py-2 bg-gold text-aps-black text-sm font-semibold rounded text-center">
+        Join Us
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    border-bottom: 1px solid transparent;
+  }
+  header.is-scrolled {
+    border-bottom-color: rgba(245, 184, 0, 0.15);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

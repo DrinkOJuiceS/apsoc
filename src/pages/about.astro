@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About" description="Learn about the UST Applied Physics Society — our history, mission, and vision.">
+  <section class="bg-aps-black text-white py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="font-serif text-4xl font-bold mb-3" data-animate="fade-up">About Us</h1>
+      <p class="text-gray-400" data-animate="fade-up" data-animate-delay="120">University of Santo Tomas · Applied Physics Society · Est. 2002</p>
+    </div>
+  </section>
+
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto space-y-12">
+      <div data-animate="fade-up">
+        <h2 class="font-serif text-2xl font-bold text-aps-black mb-4">Our Mission</h2>
+        <p class="text-gray-600 leading-relaxed">
+          The UST Applied Physics Society is committed to fostering academic excellence, promoting a culture of research, and building a vibrant community among students of Applied Physics at the University of Santo Tomas.
+        </p>
+      </div>
+
+      <div data-animate="fade-up">
+        <h2 class="font-serif text-2xl font-bold text-aps-black mb-4">Our Vision</h2>
+        <p class="text-gray-600 leading-relaxed">
+          To be a premier student organization that empowers future physicists to lead, innovate, and contribute meaningfully to science and society.
+        </p>
+      </div>
+
+      <div data-animate="fade-up">
+        <h2 class="font-serif text-2xl font-bold text-aps-black mb-4">Our History</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Founded in 2002, the UST Applied Physics Society has grown from a small group of physics enthusiasts into a thriving organization representing the Applied Physics program at UST. Over more than two decades, we have organized seminars, academic competitions, community outreach, and research initiatives that embody the spirit of applied science.
+        </p>
+      </div>
+
+      <div data-animate="fade-up">
+        <h2 class="font-serif text-2xl font-bold text-aps-black mb-4">What We Do</h2>
+        <ul class="space-y-3 text-gray-600">
+          {[
+            'Organize academic seminars, workshops, and colloquiums',
+            'Connect students with research groups and laboratories',
+            'Participate in inter-university physics competitions',
+            'Host social and community outreach events',
+            'Support career development for aspiring physicists',
+          ].map((item, i) => (
+            <li class="flex gap-3" data-animate="fade-left" data-animate-delay={String(i * 80)}>
+              <span class="text-gold font-bold mt-0.5 shrink-0">—</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import collaborators from '../data/collaborators.json';
+---
+
+<BaseLayout title="Collaborators" description="Partners and collaborators of the UST Applied Physics Society.">
+  <section class="bg-aps-black text-white py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="font-serif text-4xl font-bold mb-3" data-animate="fade-up">Collaborators</h1>
+      <p class="text-gray-400" data-animate="fade-up" data-animate-delay="120">Partner organizations, institutions, and sponsors</p>
+    </div>
+  </section>
+
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      {collaborators.length === 0 ? (
+        <div class="bg-gray-50 rounded-xl p-12 text-center border border-dashed border-gray-200" data-animate="fade-up">
+          <p class="text-gray-400 mb-2">Collaborator and partner information will be listed here.</p>
+          <p class="text-gray-400 text-sm">Add entries to <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">src/data/collaborators.json</code></p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {collaborators.map((collab: any, i: number) => (
+            <a
+              href={collab.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-gold hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group"
+              data-animate="fade-up"
+              data-animate-delay={String(i * 80)}
+            >
+              <h3 class="font-semibold text-aps-black group-hover:text-gold transition-colors">{collab.name}</h3>
+              <p class="text-gray-500 text-sm mt-1">{collab.description}</p>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

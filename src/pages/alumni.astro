@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import alumni from '../data/alumni.json';
+---
+
+<BaseLayout title="Alumni" description="Where UST Applied Physics Society alumni are now.">
+  <section class="bg-aps-black text-white py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="font-serif text-4xl font-bold mb-3" data-animate="fade-up">Alumni Network</h1>
+      <p class="text-gray-400" data-animate="fade-up" data-animate-delay="120">Where our graduates are making an impact</p>
+    </div>
+  </section>
+
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      {alumni.length === 0 ? (
+        <div class="bg-gray-50 rounded-xl p-12 text-center border border-dashed border-gray-200" data-animate="fade-up">
+          <p class="text-gray-400 mb-2">Alumni profiles will be listed here.</p>
+          <p class="text-gray-400 text-sm">Add entries to <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">src/data/alumni.json</code></p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {alumni.map((person: any, i: number) => (
+            <div
+              class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              data-animate="fade-up"
+              data-animate-delay={String(i * 80)}
+            >
+              <h3 class="font-semibold text-aps-black">{person.name}</h3>
+              <p class="text-gold text-sm font-medium mt-0.5">{person.role}</p>
+              <p class="text-gray-500 text-sm mt-1">{person.organization}</p>
+              {person.batch && <p class="text-gray-400 text-xs mt-2">Batch {person.batch}</p>}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

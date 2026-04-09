@@ -1,0 +1,55 @@
+---
+const currentYear = new Date().getFullYear();
+const links = [
+  { href: '/about', label: 'About' },
+  { href: '/events', label: 'Events' },
+  { href: '/research', label: 'Research' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<footer class="bg-aps-black text-gray-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/logo.png" alt="UST APS Logo" class="h-12 w-12 rounded-full object-cover" />
+          <div class="text-white font-semibold leading-tight">
+            UST Applied<br />Physics Society
+          </div>
+        </div>
+        <p class="text-sm">Est. 2002 · University of Santo Tomas</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-white font-semibold mb-3">Quick Links</h3>
+        <ul class="space-y-2">
+          {links.map(link => (
+            <li>
+              <a href={link.href} class="text-sm hover:text-gold transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-white font-semibold mb-3">Get in Touch</h3>
+        <p class="text-sm mb-4">Have questions? Reach out to us.</p>
+        <a
+          href="/contact"
+          class="inline-block px-4 py-2 border border-gold text-gold text-sm rounded hover:bg-gold hover:text-aps-black transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-8 pt-6 text-center text-xs">
+      &copy; {currentYear} UST Applied Physics Society. All rights reserved.
+    </div>
+  </div>
+</footer>
