@@ -8,7 +8,6 @@ const navLinks = [
   { href: '/collaborators', label: 'Collaborators' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/alumni', label: 'Alumni' },
-  { href: '/contact', label: 'Contact' },
 ];
 const currentPath = Astro.url.pathname;
 ---
@@ -43,10 +42,10 @@ const currentPath = Astro.url.pathname;
           </a>
         ))}
         <a
-          href="/contact"
+          href="mailto:your-email@ust.edu.ph"
           class="ml-3 px-4 py-2 bg-gold text-aps-black text-sm font-semibold rounded hover:bg-gold-dark transition-colors duration-200"
         >
-          Join Us
+          Contact Us
         </a>
       </div>
 
@@ -68,8 +67,8 @@ const currentPath = Astro.url.pathname;
           {link.label}
         </a>
       ))}
-      <a href="/contact" class="block mt-2 px-3 py-2 bg-gold text-aps-black text-sm font-semibold rounded text-center">
-        Join Us
+      <a href="mailto:your-email@ust.edu.ph" class="block mt-2 px-3 py-2 bg-gold text-aps-black text-sm font-semibold rounded text-center">
+        Contact Us
       </a>
     </div>
   </nav>
