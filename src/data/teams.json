@@ -1,62 +1,62 @@
 [
   {
     "slug": "president",
-    "name": "President",
+    "name": "Office of the President",
     "members": []
   },
   {
     "slug": "executive-vice-president",
-    "name": "Executive Vice President",
+    "name": "Office of the Executive Vice President",
     "members": []
   },
   {
     "slug": "executive-secretary",
-    "name": "Executive Secretary",
+    "name": "Office of the Executive Secretary",
     "members": []
   },
   {
     "slug": "vp-finance",
-    "name": "Vice President for Finance",
+    "name": "Office of the Vice President for Finance",
     "members": []
   },
   {
     "slug": "vp-audit",
-    "name": "Vice President for Audit",
+    "name": "Office of the Vice President for Audit",
     "members": []
   },
   {
     "slug": "vp-creatives",
-    "name": "Vice President for Creatives",
+    "name": "Office of the Vice President for Creatives",
     "members": []
   },
   {
     "slug": "vp-sports-recreation",
-    "name": "Vice President for Sports and Recreation",
+    "name": "Office of the Vice President for Sports and Recreation",
     "members": []
   },
   {
     "slug": "vp-external-affairs",
-    "name": "Vice President for External Affairs",
+    "name": "Office of the Vice President for External Affairs",
     "members": []
   },
   {
     "slug": "vp-marketing",
-    "name": "Vice President for Marketing",
+    "name": "Office of the Vice President for Marketing",
     "members": []
   },
   {
     "slug": "vp-community-development",
-    "name": "Vice President for Community Development",
+    "name": "Office of the Vice President for Community Development",
     "members": []
   },
   {
     "slug": "vp-events-coordination",
-    "name": "Vice President for Events Coordination",
+    "name": "Office of the Vice President for Events Coordination",
     "members": []
   },
   {
     "slug": "thomasian-wellness-advocate",
-    "name": "Thomasian Wellness Advocate",
+    "name": "Office of the Thomasian Wellness Advocate",
     "members": []
   }
 ]
