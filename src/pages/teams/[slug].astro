@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import teams from '../../data/teams.json';
+
+export async function getStaticPaths() {
+  return teams.map(team => ({
+    params: { slug: team.slug },
+    props: { team },
+  }));
+}
+
+interface Member {
+  name: string;
+  year?: string;
+  photo?: string;
+}
+
+interface Team {
+  slug: string;
+  name: string;
+  members: Member[];
+}
+
+const { team } = Astro.props as { team: Team };
+
+function getInitials(name: string) {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(n => n[0].toUpperCase())
+    .join('');
+}
+---
+
+<BaseLayout title={team.name} description={`Meet the ${team.name} team of the UST Applied Physics Society.`}>
+  <!-- Hero -->
+  <section class="bg-aps-black text-white py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <a
+        href="/officers"
+        class="inline-flex items-center gap-1.5 text-gray-400 hover:text-gold text-sm mb-6 transition-colors duration-200"
+        data-animate="fade-down"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        All Teams
+      </a>
+      <h1 class="font-serif text-4xl font-bold mb-3" data-animate="fade-up">{team.name}</h1>
+    </div>
+  </section>
+
+  <!-- Members -->
+  <section class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      {team.members.length === 0 ? (
+        <div
+          class="bg-gray-50 rounded-xl p-12 text-center border border-dashed border-gray-200"
+          data-animate="fade-up"
+        >
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gold/10 rounded-full mb-4">
+            <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <p class="text-gray-500 font-medium">Members coming soon</p>
+          <p class="text-gray-400 text-sm mt-1">Check back later for updates.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {team.members.map((member: Member, i: number) => (
+            <div
+              class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 text-center"
+              data-animate="fade-up"
+              data-animate-delay={String(i * 60)}
+            >
+              {member.photo ? (
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  class="w-20 h-20 rounded-full object-cover mx-auto mb-4 ring-2 ring-gold/20"
+                />
+              ) : (
+                <div class="w-20 h-20 rounded-full bg-aps-black flex items-center justify-center mx-auto mb-4 ring-2 ring-gold/20">
+                  <span class="text-gold font-bold text-lg">{getInitials(member.name)}</span>
+                </div>
+              )}
+              <h3 class="font-semibold text-aps-black text-sm leading-snug">{member.name}</h3>
+              {member.year && (
+                <p class="text-gray-500 text-xs mt-1">{member.year}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

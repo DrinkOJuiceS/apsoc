@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "president",
+    "name": "President",
+    "members": []
+  },
+  {
+    "slug": "executive-vice-president",
+    "name": "Executive Vice President",
+    "members": []
+  },
+  {
+    "slug": "executive-secretary",
+    "name": "Executive Secretary",
+    "members": []
+  },
+  {
+    "slug": "vp-finance",
+    "name": "Vice President for Finance",
+    "members": []
+  },
+  {
+    "slug": "vp-audit",
+    "name": "Vice President for Audit",
+    "members": []
+  },
+  {
+    "slug": "vp-creatives",
+    "name": "Vice President for Creatives",
+    "members": []
+  },
+  {
+    "slug": "vp-sports-recreation",
+    "name": "Vice President for Sports and Recreation",
+    "members": []
+  },
+  {
+    "slug": "vp-external-affairs",
+    "name": "Vice President for External Affairs",
+    "members": []
+  },
+  {
+    "slug": "vp-marketing",
+    "name": "Vice President for Marketing",
+    "members": []
+  },
+  {
+    "slug": "vp-community-development",
+    "name": "Vice President for Community Development",
+    "members": []
+  },
+  {
+    "slug": "vp-events-coordination",
+    "name": "Vice President for Events Coordination",
+    "members": []
+  },
+  {
+    "slug": "thomasian-wellness-advocate",
+    "name": "Thomasian Wellness Advocate",
+    "members": []
+  }
+]
